@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Sayfanın karakter kodlaması ve meta bilgileri -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO için meta açıklamaları -->
+    <meta name="description" content="Muhammet Akkaş - Java, Python, ASP.NET Core ve modern web teknolojileri üzerinde uzmanlaşmış bir bilgisayar mühendisi.">
+    <meta name="keywords" content="Muhammet Akkaş, Bilgisayar Mühendisi, Java, Python, ASP.NET Core, Web Geliştirme, Mobil Uygulama">
+    <meta name="author" content="Muhammet Akkaş">
+    <!-- Sayfa başlığı -->
+    <title>Muhammet</title>
+    <!-- Harici stil dosyaları -->
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Dahili stil tanımları -->
+    <style>
+        /* Google Fonts'tan yazı tipleri */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        @media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 32px;
+    }
+
+    .btn-box {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+        /* Genel stil sıfırlama ve temel ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Sayfa arka planı ve metin rengi */
+        body {
+            color: #ededed;
+            background-color: #081b29;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Yumuşak kaydırma davranışı */
+        html {
+            scroll-behavior: smooth;
+        }
+        @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.home-content, .home-imgHover {
+    animation: fadeIn 2s ease-in;
+}
+        
+
+        /* Header (Üst Menü) Stili */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10px;
+            background: rgba(8, 27, 41, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        /* Logo Stili */
+        .logo {
+            font-size: 25px;
+            color: #ededed;
+            text-decoration: none;
+            font-weight: 600;
+            
+        }
+
+        /* Navigasyon Menüsü Stili */
+        .navbar a {
+            font-size: 18px;
+            color: #ededed;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+        }
+
+        /* Navigasyon Menüsü Hover ve Aktif Durum Stili */
+        .navbar a:hover, .navbar a.active {
+            color: #00abf0;
+        }
+
+        /* Bölümler için genel stil */
+        section {
+            padding: 100px 10%;
+        }
+
+        /* Ana Sayfa (Home) Bölümü Stili */
+        .home {
+            height: 100vh;
+            background: url('home.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        /* Ana Sayfa İçeriği Stili */
+        .home-content {
+            max-width: 600px;
+        }
+
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #00abf0;
+        }
+
+        .home-content p {
+            font-size: 16px;
+            margin: 20px 0 40px;
+        }
+
+        /* Buton Kutusu Stili */
+        .btn-box {
+            display: flex;
+            justify-content: space-between;
+            width: 345px;
+            height: 50px;
+        }
+
+        /* Buton Stili */
+        .btn-box a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 100%;
+            background: #00abf0;
+            border-radius: 8px;
+            color: #081b29;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .5s;
+        }
+
+        /* Buton Hover Stili */
+        .btn-box a:hover {
+            background: #081b29;
+            color: #00abf0;
+        }
+
+        /* Sosyal Medya İkonları Stili */
+        .home-sci {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .home-sci a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid #00abf0;
+            color: #00abf0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .5s;
+        }
+
+        /* Sosyal Medya İkonları Hover Stili */
+        .home-sci a:hover {
+            background: #00abf0;
+            color: #081b29;
+        }
+
+        /* Profil Resmi Hover Efekti */
+        .home-imgHover {
+            width: 400px;
+            height: 400px;
+            background: url('4708BCE9-1433-460C-BF51-0BE7632EC737.jpeg') no-repeat center/cover;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 171, 240, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .home-imgHover:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bölüm Başlıkları Stili */
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #00abf0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Bölüm İçeriği Stili */
+        .section-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 400;
+            text-align: justify;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            padding: 10px 0;
+        }
+
+        /* Yetenekler Bölümü Stili */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .skill-box {
+            width: calc(33.33% - 20px);
+            text-align: center;
+            background: #081b29;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 171, 240, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-box i {
+            font-size: 40px;
+            color: #00abf0;
+        }
+
+        .skill-box h3 {
+            margin-top: 10px;
+            color: #ededed;
+        }
+
+        /* İletişim İkonları Stili */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #00abf0;
+            color: #081b29;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 32px;
+        }
+
+        /* İletişim İkonları Hover Stili */
+        .social-icon:hover {
+            background-color: #081b29;
+            color: #00abf0;
+        }
+
+        /* Footer (Alt Bilgi) Stili */
+        .footer {
+            background-color: #081b29;
+            font-style: italic;
+            color: #00abf0;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: -60px;
+            left: 0;
+            width: 100%;
+            font-size: 16px;
+            transition: bottom 0.3s ease;
+        }
+
+        /* WhatsApp Butonu Stili */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00abf0;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 171, 240, 0.5);
+        }
+
+        .chat-button a {
+            color: #081b29;
+            text-decoration: none;
+        }
+
+        /* Bölüm Animasyonları */
+        section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+      
+    </style>
+</head>
+<body>
+    <!-- Header (Üst Menü) -->
+    <header class="header">
+        <a href="#" class="logo">Muhammet</a>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main>
+        <section id="home">
+            <h1 >Welcome</h1>
+            <p>Take a look at my professional portfolio.</p>
+        </section>
+    </main>
+
+    <!-- Ana Sayfa Bölümü -->
+    <section class="home">
+        <div class="home-content">
+            <h1>Hi,</h1>
+            <h1>I'm Muhammet Akkaş</h1>
+            <h3>Computer Engineer</h3>
+            <p>Java, Python, ASP.NET Core ve modern web teknolojileri üzerinde uzmanlaşmış bir BİLGİSAYAR MÜHENDİSİYİM.</p>
+            <div class="btn-box">
+                <a href="#projects">Projelerim</a>
+                <a href="mailto:muhammetakkas860@gmail.com">İletişime Geç</a>
+            </div>
+        </div>
+
+        <!-- Sosyal Medya İkonları -->
+        <div class="home-sci">
+            <a href="https://www.facebook.com/muhammet.akkas.376/" target="_blank"><i class='bx bxl-facebook'></i></a>
+            <a href="https://x.com/Muhammetakts0" target="_blank"><i class='bx bxl-twitter'></i></a>
+            <a href="https://www.linkedin.com/in/muhammetakkas/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+
+        <!-- Profil Resmi -->
+        <div class="home-imgHover"></div>
+    </section>
+
+    <!-- Hakkımda Bölümü -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-content">
+            <p><strong>I am Muhammet Akkaş, a computer engineer with extensive experience in software development. I specialize in languages such as Java, Python, and ASP.NET Core. Although my main focus is on desktop and mobile application development, I am also actively working with web technologies.
+
+                My passion for software engineering stems from my desire to create more efficient solutions using modern technologies and powerful tools. I always aim to continue advancing in the ever-evolving software world. This passion for technology is something I prioritize in my daily work and projects.
+                
+                In the future, I plan to take on larger projects and establish a strong presence in the tech world.</strong></p>
+        </div>
+    </section>
+
+    <!-- Projeler Bölümü -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-content">
+            <p>- <strong>Mobil Uygulama:</strong> React Native kullanarak geliştirdiğim çok platformlu mobil uygulamalar.</p>
+            <p>- <strong>Masaüstü Yazılım:</strong> Java ve Python tabanlı masaüstü yazılım projeleri.</p>
+            <p>- <strong>Web Modülleri:</strong> ASP.NET Core ile geliştirilen web tabanlı çözümler.</p>
+        </div>
+    </section>
+
+    <!-- Yetenekler Bölümü -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <i class='bx bxl-java'></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-python'></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-c-plus-plus'></i>
+                <h3>C#</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-html5'></i>
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-css3'></i>
+                <h3>CSS3</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-javascript'></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-box">
+                <i class='bx bxl-react'></i>
+                <h3>React Native</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deneyim Bölümü -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-content">
+            <p><strong>Arı Bilgi Bilişim Teknolojileri Akademisi logosu
+                Stajyer
+                Stajyer
+                Arı Bilgi Bilişim Teknolojileri Akademisi · StajyerArı Bilgi Bilişim Teknolojileri Akademisi · Stajyer
+                Şub 2024 - Tem 2024 · 6 ayŞub 2024 - Tem 2024 · 6 ay
+                İstanbul, Türkiye · Hibritİstanbul, Türkiye · Hibrit
+                Bilgisayar mühendisliği öğrencisi olarak, yazılım geliştirme ve web teknolojileri alanında kendimi sürekli geliştirmeye odaklanıyorum. Staj dönemlerimde, web uygulamaları geliştirme, backend teknolojileri ve veritabanı yönetimi konularında uygulamalı deneyim kazandım. RESTful API entegrasyonu ve performans odaklı sistem tasarımı üzerinde çalışma fırsatları bldum.</strong></p>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <section id="contact">
+        <h2 class="section-title">Contact:</h2>
+        <div class="contact-icons">
+            <!-- Gmail İkonu -->
+            <a href="mailto:muhammetakkas860@gmail.com" class="social-icon">
+                <i class="bx bxl-gmail"></i>
+            </a>
+            <!-- LinkedIn İkonu -->
+            <a href="https://www.linkedin.com/in/muhammetakkas/" target="_blank" class="social-icon">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <!-- CV İndirme İkonu -->
+            <a href="CV.jpg" download class="social-icon">
+                <i class='bx bxs-file-pdf'></i>
+            </a>
+            <!-- GitHub İkonu -->
+            <a href="https://github.com/Muhammetakks" target="_blank" class="social-icon">
+                <i class="bx bxl-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer (Alt Bilgi) -->
+    <section class="footer">
+        <p><strong>Muhammet Akkas</strong></p>
+    </section>
+
+    <!-- WhatsApp Butonu -->
+    <div class="chat-button">
+        <a href="http://wa.me/+905342708183" target="_blank">
+            <i class='bx bxl-whatsapp'></i>
+        </a>
+    </div>
+    
+
+   <script>
+    const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach((section) => {
+  observer.observe(section);
+});
+  window.onscroll = function() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        document.querySelector('.footer').style.bottom = '0';  // Sayfa altına gelindiğinde footer'ı göster
+    } else {
+        document.querySelector('.footer').style.bottom = '-60px';  // Sayfa altına gelinmediğinde footer'ı gizle
+    }
+};
+
+   </script>
+   
+  
+    
+
+</body>
+</html>
