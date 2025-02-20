@@ -336,6 +336,46 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Mobil ekranlar için responsive tasarım */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 32px; /* Başlık font boyutunu küçülttüm */
+    }
+
+    .btn-box {
+        flex-direction: column; /* Butonları dikey hizaladım */
+        width: 100%; /* Buton kutusunu tam genişlikte yaptım */
+    }
+
+    /* Sosyal medya ikonlarının hizalanması */
+    .home-sci {
+        position: absolute;
+        bottom: 20px; /* Alt kısmı biraz yukarı aldım */
+        display: flex;
+        justify-content: center; /* Ortada hizaladım */
+        gap: 10px; /* İkonlar arasına biraz boşluk ekledim */
+    }
+
+    /* Profil resminin boyutunu küçülttüm */
+    .home-imgHover {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Header menüsünde dikey sıralama ve hizalama */
+    .navbar {
+        flex-direction: column; /* Menü elemanlarını dikey sıraladım */
+        align-items: center;
+        margin-top: 20px; /* Menüyü biraz aşağıya aldım */
+    }
+
+    .navbar a {
+        font-size: 16px; /* Menü font boyutunu küçülttüm */
+        margin-left: 0; /* Sol boşluğu kaldırdım */
+        margin-bottom: 15px; /* Menü elemanları arasına boşluk ekledim */
+    }
+}
+
       
     </style>
 </head>
@@ -367,10 +407,10 @@
             <h1>Hi,</h1>
             <h1>I'm Muhammet Akkaş</h1>
             <h3>Computer Engineer</h3>
-            <p>Java, Python, ASP.NET Core ve modern web teknolojileri üzerinde uzmanlaşmış bir BİLGİSAYAR MÜHENDİSİYİM.</p>
+            <p>I am a COMPUTER ENGINEER specialized in Java, Python, ASP.NET Core, and modern web technologies.</p>
             <div class="btn-box">
-                <a href="#projects">Projelerim</a>
-                <a href="mailto:muhammetakkas860@gmail.com">İletişime Geç</a>
+                <a href="#projects">Projects</a>
+                <a href="mailto:muhammetakkas860@gmail.com">Contact Me</a>
             </div>
         </div>
 
@@ -402,12 +442,11 @@
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="section-content">
-            <p>- <strong>Mobil Uygulama:</strong> React Native kullanarak geliştirdiğim çok platformlu mobil uygulamalar.</p>
-            <p>- <strong>Masaüstü Yazılım:</strong> Java ve Python tabanlı masaüstü yazılım projeleri.</p>
-            <p>- <strong>Web Modülleri:</strong> ASP.NET Core ile geliştirilen web tabanlı çözümler.</p>
+            <p>- <strong> Mobile Application: </strong>Cross-platform mobile applications developed using React Native.</p>
+            <p>- <strong>Desktop Software:</strong> Desktop software projects based on Java and Python.</p>
+            <p>- <strong>Web Modules:</strong> Web-based solutions developed with ASP.NET Core.</p>
         </div>
     </section>
-
     <!-- Yetenekler Bölümü -->
     <section id="skills">
         <h2 class="section-title">Skills</h2>
@@ -438,7 +477,7 @@
             </div>
             <div class="skill-box">
                 <i class='bx bxl-react'></i>
-                <h3>React Native</h3>
+                <h3>React Native Js</h3>
             </div>
         </div>
     </section>
@@ -447,13 +486,14 @@
     <section id="experience">
         <h2 class="section-title">Experience</h2>
         <div class="section-content">
-            <p><strong>Arı Bilgi Bilişim Teknolojileri Akademisi logosu
-                Stajyer
-                Stajyer
-                Arı Bilgi Bilişim Teknolojileri Akademisi · StajyerArı Bilgi Bilişim Teknolojileri Akademisi · Stajyer
-                Şub 2024 - Tem 2024 · 6 ayŞub 2024 - Tem 2024 · 6 ay
-                İstanbul, Türkiye · Hibritİstanbul, Türkiye · Hibrit
-                Bilgisayar mühendisliği öğrencisi olarak, yazılım geliştirme ve web teknolojileri alanında kendimi sürekli geliştirmeye odaklanıyorum. Staj dönemlerimde, web uygulamaları geliştirme, backend teknolojileri ve veritabanı yönetimi konularında uygulamalı deneyim kazandım. RESTful API entegrasyonu ve performans odaklı sistem tasarımı üzerinde çalışma fırsatları bldum.</strong></p>
+            <p><strong>Arı Bilgi Information Technologies Academy 
+                Intern
+                Arı Bilgi Information Technologies Academy · Intern
+                February 2024 – July 2024 · 6 months
+                Istanbul, Türkiye · Hybrid
+                
+                As a computer engineering student, I am focused on continuously improving myself in software development and web technologies. During my internship periods, I gained hands-on experience in developing web applications, backend technologies, and database management. I had the opportunity to work on RESTful API integration and performance-oriented system design.
+     </strong></p>
         </div>
     </section>
 
