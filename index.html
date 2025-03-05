@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Temel meta etiketler: Kodlama, uyumluluk ve responsive tasarım için -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,12 @@
     <meta name="keywords" content="Muhammet Akkaş, Bilgisayar Mühendisi, Java, Python, ASP.NET Core, Web Geliştirme, Mobil Uygulama">
     <meta name="author" content="Muhammet Akkaş">
     <title>Muhammet Akkaş | Portfolio</title>
+    
+    <!-- Dış kaynaklar: Boxicons ve EmailJS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+    <!-- CSS: Stil tanımlamaları -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         * {
@@ -23,9 +27,9 @@
             color: #ededed;
             background-color: #081b29;
             overflow-x: hidden;
-            position: relative;
             transition: background-color 0.5s, color 0.5s;
         }
+        /* Açık tema ayarları */
         body.light-theme {
             background-color: #ffffff;
             color: #081b29;
@@ -111,10 +115,10 @@
             color: #00abf0;
         }
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Yumuşak kaydırma */
         }
 
-        /* Parçacık Efekti */
+        /* Parçacık efekti: Arka planda hareketli noktalar */
         .particles {
             position: fixed;
             top: 0;
@@ -138,6 +142,7 @@
             100% { transform: translateY(0); opacity: 0.5; }
         }
 
+        /* Animasyonlar */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -146,8 +151,10 @@
             0% { transform: translateX(-100%); opacity: 0; }
             100% { transform: translateX(0); opacity: 1; }
         }
+
+        /* Header: Sabit üst menü */
         .header {
-            position: fixed; /* sticky yerine fixed yaptık */
+            position: fixed;
             top: 0;
             width: 100%;
             padding: 20px 10%;
@@ -158,10 +165,11 @@
             z-index: 100;
             backdrop-filter: blur(5px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease; /* Yumuşak geçiş için transform ekledik */
+            transition: transform 0.5s ease;
+            min-height: 60px;
         }
         .header.hidden {
-            transform: translateY(-100%); /* Yukarı kaydırma efekti */
+            transform: translateY(-100%); /* Kaydırıldığında gizlenir */
         }
         .logo {
             font-size: 25px;
@@ -225,18 +233,24 @@
         .lang-toggle:hover {
             color: #00abf0;
         }
+
+        /* Ana Sayfa Bölümü */
         .home {
-            height: 100vh;
+            padding-top: 160px; /* Header ile içerik arasında bayağı fazla boşluk (masaüstü) */
+            min-height: 100vh;
             background: url('home.jpg') no-repeat;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding: 0 10%;
+            padding-left: 10%;
+            padding-right: 10%;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
         .home::before {
             content: '';
@@ -344,6 +358,8 @@
             50% { box-shadow: 0 0 60px rgba(0, 171, 240, 1); }
             100% { box-shadow: 0 0 30px rgba(0, 171, 240, 0.8); }
         }
+
+        /* Genel bölüm stilleri */
         section {
             padding: 100px 10%;
             opacity: 0;
@@ -369,6 +385,8 @@
             text-align: justify;
             color: #ededed;
         }
+
+        /* Yetenekler bölümü */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -435,6 +453,8 @@
             font-weight: 700;
             color: #00abf0;
         }
+
+        /* Projeler bölümü */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -458,6 +478,8 @@
             margin-right: 10px;
             font-size: 14px;
         }
+
+        /* Modal pencere (proje detayları için) */
         .modal {
             display: none;
             position: fixed;
@@ -492,6 +514,8 @@
         .close-modal:hover {
             color: #00abf0;
         }
+
+        /* İletişim formu */
         .contact-form {
             max-width: 600px;
             margin: 40px auto;
@@ -542,6 +566,8 @@
             color: #00abf0;
             transform: rotate(360deg);
         }
+
+        /* Footer: Alt bilgi bölümü */
         .footer {
             background-color: #081b29;
             color: #00abf0;
@@ -562,6 +588,8 @@
             from { bottom: -40px; }
             to { bottom: 0; }
         }
+
+        /* WhatsApp sohbet butonu */
         .chat-button {
             position: fixed;
             bottom: 20px;
@@ -583,6 +611,8 @@
         .chat-button:hover {
             transform: scale(1.1);
         }
+
+        /* Yukarı kaydırma butonu */
         .scroll-top {
             position: fixed;
             bottom: 60px;
@@ -609,7 +639,7 @@
             animation: none;
         }
 
-        /* Blog Bölümü */
+        /* Blog bölümü */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -630,7 +660,7 @@
             text-decoration: none;
         }
 
-        /* Zaman Çizelgesi */
+        /* Zaman çizelgesi (deneyim bölümü) */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -677,22 +707,25 @@
             left: -5px;
         }
 
+        /* Mobil cihazlar için düzenlemeler */
         @media (max-width: 768px) {
             .home {
-                flex-direction: column;
+                padding-top: 180px; /* Mobil için header ile fotoğraf arasında bayağı fazla boşluk */
+                flex-direction: column; /* Dikey hizalama */
+                justify-content: flex-start; /* Yukarıdan başla */
                 text-align: center;
                 padding: 20px;
-                height: auto;
+                min-height: auto; /* Yüksekliği otomatik yap */
             }
             .home-imgHover {
-                order: -1;
+                order: 0; /* Fotoğrafı en üstte tut */
                 width: 250px;
                 height: 250px;
-                margin-bottom: 20px;
+                margin: 60px auto 20px; /* Header ile fotoğraf arasında bayağı fazla boşluk */
             }
             .home-content {
                 max-width: 100%;
-                order: 0;
+                order: 1; /* Yazıyı fotoğrafın altına al */
             }
             .home-content h1 {
                 font-size: 32px;
@@ -702,7 +735,7 @@
                 width: 100%;
                 justify-content: center;
                 gap: 10px;
-                margin-bottom: 60px;
+                margin-bottom: 20px;
             }
             .btn-box a {
                 width: 120px;
@@ -713,6 +746,7 @@
                 justify-content: center;
                 gap: 10px;
                 margin-top: 20px;
+                order: 2; /* Sosyal ikonları en alta al */
             }
             .navbar {
                 position: absolute;
@@ -727,6 +761,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
                 transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+                z-index: 99;
             }
             body.light-theme .navbar {
                 background: rgba(255, 255, 255, 0.9);
@@ -745,7 +780,7 @@
                 opacity: 1;
             }
             .hamburger {
-                display: block;
+                display: block; /* Mobil menü için hamburger ikonu */
             }
             .skill-box .skill-detail {
                 width: 150px;
@@ -767,6 +802,7 @@
     </style>
 </head>
 <body>
+    <!-- Üst Menü -->
     <header class="header">
         <a href="#" class="logo">Muhammet</a>
         <i class='bx bx-menu hamburger' id="hamburger"></i>
@@ -780,12 +816,14 @@
             <a href="#contact" data-lang-en="Contact" data-lang-tr="İletişim">Contact</a>
         </nav>
         <div class="theme-toggle" id="theme-toggle">
-            <i class='bx bx-moon'></i>
+            <i class='bx bx-moon'></i> <!-- Tema değiştirme ikonu -->
         </div>
-        <i class='bx bx-globe lang-toggle' id="lang-toggle"></i>
+        <i class='bx bx-globe lang-toggle' id="lang-toggle"></i> <!-- Dil değiştirme ikonu -->
     </header>
 
+    <!-- Ana Sayfa Bölümü -->
     <section class="home" id="home">
+        <div class="home-imgHover"></div> <!-- Profil fotoğrafı -->
         <div class="home-content">
             <h1 data-lang-en="Hi," data-lang-tr="Merhaba,">Hi,</h1>
             <h1 class="typewriter" data-lang-en="I'm Muhammet Akkaş" data-lang-tr="Ben Muhammet Akkaş">I'm Muhammet Akkaş</h1>
@@ -802,17 +840,25 @@
             <a href="https://www.linkedin.com/in/muhammetakkas/" target="_blank"><i class='bx bxl-linkedin'></i></a>
             <a href="#"><i class='bx bxl-instagram'></i></a>
         </div>
-        <div class="home-imgHover"></div>
     </section>
 
+    <!-- Hakkımda Bölümü -->
     <section id="about">
         <h2 class="section-title" data-lang-en="About Me" data-lang-tr="Hakkımda">About Me</h2>
         <div class="section-content">
-            <p data-lang-en="I am Muhammet Akkaş, a computer engineer with extensive experience in software development..." data-lang-tr="Ben Muhammet Akkaş, yazılım geliştirmede geniş deneyime sahip bir bilgisayar mühendisiyim..."><strong>I am Muhammet Akkaş, a computer engineer with extensive experience in software development. I specialize in languages such as Java, Python, and ASP.NET Core. Although my main focus is on desktop and mobile application development, I am also actively working with web technologies.</strong></p>
-            <p data-lang-en="My passion for software engineering stems from my desire to create more efficient solutions..." data-lang-tr="Yazılım mühendisliğine olan tutkum, modern teknolojiler ve güçlü araçlar kullanarak daha verimli çözümler yaratma arzumdan kaynaklanıyor..."><strong>My passion for software engineering stems from my desire to create more efficient solutions using modern technologies and powerful tools. I always aim to continue advancing in the ever-evolving software world.</strong></p>
+            <p data-lang-en="My name is Muhammed Akkaş, and I am eager to join your team in a role where I can contribute to the growth and success of your company by leveraging the experience and personal qualities I have developed throughout my education and career. I have been following your company’s work culture and objectives with great interest for some time, and I am confident that my qualifications, skills, and career aspirations align seamlessly with your organization’s vision." data-lang-tr="Ben Muhammed Akkaş. Eğitimim boyunca kazandığım deneyim ve kişisel nitelikleri kullanarak şirketinizin büyümesine ve başarısına katkıda bulunabileceğim bir pozisyonda çalışmaya hevesliyim. Uzun süredir şirketinizin çalışma kültürünü ve hedeflerini yakından takip ediyorum ve niteliklerimin, becerilerimin ve kariyer beklentilerimin organizasyonunuzun vizyonuyla mükemmel bir uyum içinde olduğuna inanıyorum.">
+                <strong>My name is Muhammed Akkaş, and I am eager to join your team in a role where I can contribute to the growth and success of your company by leveraging the experience and personal qualities I have developed throughout my education and career. I have been following your company’s work culture and objectives with great interest for some time, and I am confident that my qualifications, skills, and career aspirations align seamlessly with your organization’s vision.</strong>
+            </p>
+            <p data-lang-en="I graduated from Nişantaşı University in 2024 with a degree in Computer Engineering. During my academic journey, I actively participated in various student clubs and volunteer initiatives, which enriched my interpersonal and leadership abilities. The coursework I completed and the projects I undertook equipped me with a strong foundation and advanced expertise in my field. Additionally, my internship experiences allowed me to sharpen my skills in project management, planning, and teamwork." data-lang-tr="2024 yılında Nişantaşı Üniversitesi’nden Bilgisayar Mühendisliği bölümünden mezun oldum. Akademik yolculuğum boyunca çeşitli öğrenci kulüplerinde ve gönüllü girişimlerde aktif rol aldım; bu deneyimler iletişim ve liderlik yeteneklerimi geliştirdi. Tamamladığım dersler ve üzerinde çalıştığım projeler, bana alanımda temel seviyeden ileri düzeye kadar kapsamlı bir bilgi birikimi sağladı. Ayrıca, staj deneyimlerim sayesinde proje yönetimi, planlama ve ekip çalışması becerilerimi geliştirme fırsatı buldum.">
+                <strong>I graduated from Nişantaşı University in 2024 with a degree in Computer Engineering. During my academic journey, I actively participated in various student clubs and volunteer initiatives, which enriched my interpersonal and leadership abilities. The coursework I completed and the projects I undertook equipped me with a strong foundation and advanced expertise in my field. Additionally, my internship experiences allowed me to sharpen my skills in project management, planning, and teamwork.</strong>
+            </p>
+            <p data-lang-en="I have attached my detailed CV for your review and would be delighted to contribute to your esteemed company while further honing my professional skills. Please feel free to reach out to me at the email address provided in my contact details for any additional information or to discuss my application further." data-lang-tr="Detaylı özgeçmişimi incelemeniz için ekte sunuyorum ve saygın şirketinize katkıda bulunarak profesyonel becerilerimi daha da geliştirmekten mutluluk duyarım. Başvurumla ilgili herhangi bir ek bilgi veya görüşme için lütfen iletişim bilgilerimde yer alan e-posta adresimden bana ulaşmaktan çekinmeyin.">
+                <strong>I have attached my detailed CV for your review and would be delighted to contribute to your esteemed company while further honing my professional skills. Please feel free to reach out to me at the email address provided in my contact details for any additional information or to discuss my application further.</strong>
+            </p>
         </div>
     </section>
 
+    <!-- Projeler Bölümü -->
     <section id="projects">
         <h2 class="section-title" data-lang-en="Projects" data-lang-tr="Projeler">Projects</h2>
         <div class="projects-grid">
@@ -837,6 +883,7 @@
         </div>
     </section>
 
+    <!-- Yetenekler Bölümü -->
     <section id="skills">
         <h2 class="section-title" data-lang-en="Skills" data-lang-tr="Yetenekler">Skills</h2>
         <div class="skills-container">
@@ -882,6 +929,7 @@
         </div>
     </section>
 
+    <!-- Deneyim Bölümü -->
     <section id="experience">
         <h2 class="section-title" data-lang-en="Experience" data-lang-tr="Deneyim">Experience</h2>
         <div class="timeline">
@@ -893,6 +941,7 @@
         </div>
     </section>
 
+    <!-- Blog Bölümü -->
     <section id="blog">
         <h2 class="section-title" data-lang-en="Blog" data-lang-tr="Blog">Blog</h2>
         <div class="blog-grid">
@@ -909,6 +958,7 @@
         </div>
     </section>
 
+    <!-- İletişim Bölümü -->
     <section id="contact">
         <h2 class="section-title" data-lang-en="Contact" data-lang-tr="İletişim">Contact</h2>
         <form class="contact-form" id="contact-form">
@@ -925,21 +975,24 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <section class="footer">
         <p><strong>MUHAMMET AKKAŞ</strong></p>
         <p>February 2025 - <span id="current-time"></span></p>
         <marquee>New projects coming soon! Stay tuned for updates!</marquee>
     </section>
 
+    <!-- WhatsApp Butonu -->
     <div class="chat-button">
         <a href="http://wa.me/+905342708183" target="_blank"><i class='bx bxl-whatsapp'></i></a>
     </div>
 
+    <!-- Yukarı Kaydırma Butonu -->
     <div class="scroll-top" id="scroll-top">
         <i class='bx bx-up-arrow-alt'></i>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Pencere -->
     <div class="modal" id="project-modal">
         <div class="modal-content">
             <i class='bx bx-x close-modal' id="close-modal"></i>
@@ -948,22 +1001,29 @@
         </div>
     </div>
 
+    <!-- JavaScript: İnteraktif işlevler -->
     <script>
-        // EmailJS Başlatma
+        // EmailJS başlatma (iletişim formu için)
         (function() {
             emailjs.init("nkW-HmC-RAiynjPI6");
         })();
 
-        // Hamburger Menü
+        // Hamburger menü: Mobil menüyü açma/kapama
         const hamburger = document.getElementById('hamburger');
         const navbar = document.querySelector('.navbar');
+        const homeSection = document.querySelector('.home');
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('active');
             hamburger.classList.toggle('bx-menu');
             hamburger.classList.toggle('bx-x');
+            if (navbar.classList.contains('active')) {
+                homeSection.style.marginTop = `${navbar.offsetHeight}px`;
+            } else {
+                homeSection.style.marginTop = '0';
+            }
         });
 
-        // Tema Değiştirici
+        // Tema değiştirici: Açık/koyu tema arası geçiş
         const themeToggle = document.getElementById('theme-toggle');
         let isLightTheme = localStorage.getItem('theme') === 'light';
         if (isLightTheme) {
@@ -985,7 +1045,7 @@
             isLightTheme = !isLightTheme;
         });
 
-        // Dil Değiştirme
+        // Dil değiştirme: İngilizce/Türkçe geçiş
         const langToggle = document.getElementById('lang-toggle');
         let currentLang = 'en';
         langToggle.addEventListener('click', () => {
@@ -995,13 +1055,13 @@
             });
         });
 
-        // Parallax Efekti
+        // Parallax efekti: Arka planın kaydırma ile hareketi
         window.addEventListener('scroll', () => {
             const offset = window.scrollY * 0.2;
             document.querySelector('.home').style.setProperty('--parallax-offset', `${offset}px`);
         });
 
-        // Section Animasyonları
+        // Section animasyonları: Görünüm alanına girince animasyon
         const sections = document.querySelectorAll("section");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -1014,22 +1074,20 @@
         }, { threshold: 0.2 });
         sections.forEach((section) => observer.observe(section));
 
-        // Navbar'ı kaydırma yönüne göre gizle/göster
+        // Navbar gizleme: Aşağı kaydırıldığında gizlenir
         let lastScrollTop = 0;
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             let scrollTop = window.scrollY || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop) {
-                // Aşağı kaydırıldığında gizle
                 header.classList.add('hidden');
             } else {
-                // Yukarı kaydırıldığında göster
                 header.classList.remove('hidden');
             }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Negatif kaydırmayı önlemek için
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // Footer ve Scroll-to-Top
+        // Footer ve yukarı kaydırma butonu görünürlüğü
         const scrollTop = document.getElementById('scroll-top');
         window.onscroll = function() {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -1043,7 +1101,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // İletişim Formu Gönderme
+        // İletişim formu gönderme
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             emailjs.sendForm('Muhammet Gmail', 'template_sj7ewts', this)
@@ -1055,7 +1113,7 @@
                 });
         });
 
-        // Proje Modal İşlevselliği
+        // Proje modal işlevselliği
         const modal = document.getElementById('project-modal');
         const closeModal = document.getElementById('close-modal');
         const projectCards = document.querySelectorAll('.project-card');
@@ -1080,7 +1138,7 @@
             if (e.target === modal) modal.style.display = 'none';
         });
 
-        // İnteraktif Yetenek Kartları
+        // Yetenek kartları interaktifliği
         const skillBoxes = document.querySelectorAll('.skill-box');
         skillBoxes.forEach(box => {
             box.addEventListener('click', () => {
@@ -1088,7 +1146,7 @@
             });
         });
 
-        // Parçacık Efekti
+        // Parçacık efekti oluşturma
         function createParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.className = 'particles';
@@ -1105,7 +1163,7 @@
         }
         createParticles();
 
-        // Saat Güncellemesi
+        // Saat güncelleme
         function updateTime() {
             const now = new Date();
             const timeString = now.toLocaleTimeString('en-US', { hour12: false });
@@ -1114,7 +1172,7 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        // İstatistik Sayacı
+        // İstatistik sayacı animasyonu
         function animateCounter() {
             const counter = document.getElementById('years-counter');
             const target = +counter.getAttribute('data-target');
