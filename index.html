@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Temel meta etiketler: Kodlama, uyumluluk ve responsive tasarım için -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,9 @@
     <meta name="author" content="Muhammet Akkaş">
     <title>Muhammet Akkaş | Portfolio</title>
     
-    <!-- Dış kaynaklar: Boxicons ve EmailJS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
-    <!-- CSS: Stil tanımlamaları -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         * {
@@ -29,7 +26,6 @@
             overflow-x: hidden;
             transition: background-color 0.5s, color 0.5s;
         }
-        /* Açık tema ayarları */
         body.light-theme {
             background-color: #ffffff;
             color: #081b29;
@@ -115,10 +111,9 @@
             color: #00abf0;
         }
         html {
-            scroll-behavior: smooth; /* Yumuşak kaydırma */
+            scroll-behavior: smooth;
         }
 
-        /* Parçacık efekti: Arka planda hareketli noktalar */
         .particles {
             position: fixed;
             top: 0;
@@ -142,7 +137,6 @@
             100% { transform: translateY(0); opacity: 0.5; }
         }
 
-        /* Animasyonlar */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -152,7 +146,6 @@
             100% { transform: translateX(0); opacity: 1; }
         }
 
-        /* Header: Sabit üst menü */
         .header {
             position: fixed;
             top: 0;
@@ -169,7 +162,7 @@
             min-height: 60px;
         }
         .header.hidden {
-            transform: translateY(-100%); /* Kaydırıldığında gizlenir */
+            transform: translateY(-100%);
         }
         .logo {
             font-size: 25px;
@@ -234,9 +227,8 @@
             color: #00abf0;
         }
 
-        /* Ana Sayfa Bölümü */
         .home {
-            padding-top: 160px; /* Header ile içerik arasında bayağı fazla boşluk (masaüstü) */
+            padding-top: 160px;
             min-height: 100vh;
             background: url('home.jpg') no-repeat;
             background-size: cover;
@@ -359,7 +351,6 @@
             100% { box-shadow: 0 0 30px rgba(0, 171, 240, 0.8); }
         }
 
-        /* Genel bölüm stilleri */
         section {
             padding: 100px 10%;
             opacity: 0;
@@ -386,7 +377,6 @@
             color: #ededed;
         }
 
-        /* Yetenekler bölümü */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -454,7 +444,6 @@
             color: #00abf0;
         }
 
-        /* Projeler bölümü */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -479,7 +468,6 @@
             font-size: 14px;
         }
 
-        /* Modal pencere (proje detayları için) */
         .modal {
             display: none;
             position: fixed;
@@ -515,7 +503,6 @@
             color: #00abf0;
         }
 
-        /* İletişim formu */
         .contact-form {
             max-width: 600px;
             margin: 40px auto;
@@ -567,32 +554,33 @@
             transform: rotate(360deg);
         }
 
-        /* Footer: Alt bilgi bölümü */
         .footer {
             background-color: #081b29;
             color: #00abf0;
             text-align: center;
-            padding: 10px;
+            padding: 15px; /* Daha az yer kaplaması için küçültüldü */
             position: fixed;
-            bottom: -40px;
+            bottom: -40px; /* Yeni yüksekliğe uygun gizli pozisyon */
             left: 0;
             width: 100%;
-            transition: bottom 0.5s ease, background 0.5s, color 0.5s;
-            animation: slideUp 0.5s ease forwards;
+            transition: bottom 0.5s ease;
+            z-index: 100;
+            font-size: 12.5px; /* Genel yazı boyutunu küçülttük */
+        }
+        .footer.visible {
+            bottom: 0;
+        }
+        .footer p {
+            margin: 2px 0; /* Boşlukları azalttık */
         }
         .footer marquee {
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        @keyframes slideUp {
-            from { bottom: -40px; }
-            to { bottom: 0; }
+            font-size: 12px; /* Marquee'ı küçülttük */
+            margin-top: 2px;
         }
 
-        /* WhatsApp sohbet butonu */
         .chat-button {
             position: fixed;
-            bottom: 20px;
+            bottom: 50px; /* Footer ile çakışmaması için yukarı kaydırdık */
             right: 20px;
             background-color: #00abf0;
             border-radius: 50%;
@@ -600,6 +588,7 @@
             box-shadow: 0 0 10px rgba(0, 171, 240, 0.5);
             transition: .3s;
             animation: shake 2s infinite;
+            z-index: 101;
         }
         @keyframes shake {
             0% { transform: translateX(0); }
@@ -612,10 +601,9 @@
             transform: scale(1.1);
         }
 
-        /* Yukarı kaydırma butonu */
         .scroll-top {
             position: fixed;
-            bottom: 60px;
+            bottom: 90px; /* Footer ile çakışmaması için yukarı kaydırdık */
             right: 20px;
             width: 50px;
             height: 50px;
@@ -628,6 +616,7 @@
             cursor: pointer;
             transition: .3s;
             animation: bounce 2s infinite;
+            z-index: 101;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -639,7 +628,6 @@
             animation: none;
         }
 
-        /* Blog bölümü */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -660,7 +648,6 @@
             text-decoration: none;
         }
 
-        /* Zaman çizelgesi (deneyim bölümü) */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -707,25 +694,24 @@
             left: -5px;
         }
 
-        /* Mobil cihazlar için düzenlemeler */
         @media (max-width: 768px) {
             .home {
-                padding-top: 180px; /* Mobil için header ile fotoğraf arasında bayağı fazla boşluk */
-                flex-direction: column; /* Dikey hizalama */
-                justify-content: flex-start; /* Yukarıdan başla */
+                padding-top: 180px;
+                flex-direction: column;
+                justify-content: flex-start;
                 text-align: center;
                 padding: 20px;
-                min-height: auto; /* Yüksekliği otomatik yap */
+                min-height: auto;
             }
             .home-imgHover {
-                order: 0; /* Fotoğrafı en üstte tut */
+                order: 0;
                 width: 250px;
                 height: 250px;
-                margin: 60px auto 20px; /* Header ile fotoğraf arasında bayağı fazla boşluk */
+                margin: 60px auto 20px;
             }
             .home-content {
                 max-width: 100%;
-                order: 1; /* Yazıyı fotoğrafın altına al */
+                order: 1;
             }
             .home-content h1 {
                 font-size: 32px;
@@ -746,7 +732,7 @@
                 justify-content: center;
                 gap: 10px;
                 margin-top: 20px;
-                order: 2; /* Sosyal ikonları en alta al */
+                order: 2;
             }
             .navbar {
                 position: absolute;
@@ -780,7 +766,7 @@
                 opacity: 1;
             }
             .hamburger {
-                display: block; /* Mobil menü için hamburger ikonu */
+                display: block;
             }
             .skill-box .skill-detail {
                 width: 150px;
@@ -802,7 +788,6 @@
     </style>
 </head>
 <body>
-    <!-- Üst Menü -->
     <header class="header">
         <a href="#" class="logo">Muhammet</a>
         <i class='bx bx-menu hamburger' id="hamburger"></i>
@@ -816,14 +801,13 @@
             <a href="#contact" data-lang-en="Contact" data-lang-tr="İletişim">Contact</a>
         </nav>
         <div class="theme-toggle" id="theme-toggle">
-            <i class='bx bx-moon'></i> <!-- Tema değiştirme ikonu -->
+            <i class='bx bx-moon'></i>
         </div>
-        <i class='bx bx-globe lang-toggle' id="lang-toggle"></i> <!-- Dil değiştirme ikonu -->
+        <i class='bx bx-globe lang-toggle' id="lang-toggle"></i>
     </header>
 
-    <!-- Ana Sayfa Bölümü -->
     <section class="home" id="home">
-        <div class="home-imgHover"></div> <!-- Profil fotoğrafı -->
+        <div class="home-imgHover"></div>
         <div class="home-content">
             <h1 data-lang-en="Hi," data-lang-tr="Merhaba,">Hi,</h1>
             <h1 class="typewriter" data-lang-en="I'm Muhammet Akkaş" data-lang-tr="Ben Muhammet Akkaş">I'm Muhammet Akkaş</h1>
@@ -842,7 +826,6 @@
         </div>
     </section>
 
-    <!-- Hakkımda Bölümü -->
     <section id="about">
         <h2 class="section-title" data-lang-en="About Me" data-lang-tr="Hakkımda">About Me</h2>
         <div class="section-content">
@@ -858,7 +841,6 @@
         </div>
     </section>
 
-    <!-- Projeler Bölümü -->
     <section id="projects">
         <h2 class="section-title" data-lang-en="Projects" data-lang-tr="Projeler">Projects</h2>
         <div class="projects-grid">
@@ -883,7 +865,6 @@
         </div>
     </section>
 
-    <!-- Yetenekler Bölümü -->
     <section id="skills">
         <h2 class="section-title" data-lang-en="Skills" data-lang-tr="Yetenekler">Skills</h2>
         <div class="skills-container">
@@ -929,7 +910,6 @@
         </div>
     </section>
 
-    <!-- Deneyim Bölümü -->
     <section id="experience">
         <h2 class="section-title" data-lang-en="Experience" data-lang-tr="Deneyim">Experience</h2>
         <div class="timeline">
@@ -941,7 +921,6 @@
         </div>
     </section>
 
-    <!-- Blog Bölümü -->
     <section id="blog">
         <h2 class="section-title" data-lang-en="Blog" data-lang-tr="Blog">Blog</h2>
         <div class="blog-grid">
@@ -958,7 +937,6 @@
         </div>
     </section>
 
-    <!-- İletişim Bölümü -->
     <section id="contact">
         <h2 class="section-title" data-lang-en="Contact" data-lang-tr="İletişim">Contact</h2>
         <form class="contact-form" id="contact-form">
@@ -975,24 +953,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <section class="footer">
+    <section class="footer" id="footer">
         <p><strong>MUHAMMET AKKAŞ</strong></p>
         <p>February 2025 - <span id="current-time"></span></p>
         <marquee>New projects coming soon! Stay tuned for updates!</marquee>
     </section>
 
-    <!-- WhatsApp Butonu -->
     <div class="chat-button">
         <a href="http://wa.me/+905342708183" target="_blank"><i class='bx bxl-whatsapp'></i></a>
     </div>
 
-    <!-- Yukarı Kaydırma Butonu -->
     <div class="scroll-top" id="scroll-top">
         <i class='bx bx-up-arrow-alt'></i>
     </div>
 
-    <!-- Modal Pencere -->
     <div class="modal" id="project-modal">
         <div class="modal-content">
             <i class='bx bx-x close-modal' id="close-modal"></i>
@@ -1001,14 +975,11 @@
         </div>
     </div>
 
-    <!-- JavaScript: İnteraktif işlevler -->
     <script>
-        // EmailJS başlatma (iletişim formu için)
         (function() {
             emailjs.init("nkW-HmC-RAiynjPI6");
         })();
 
-        // Hamburger menü: Mobil menüyü açma/kapama
         const hamburger = document.getElementById('hamburger');
         const navbar = document.querySelector('.navbar');
         const homeSection = document.querySelector('.home');
@@ -1023,7 +994,6 @@
             }
         });
 
-        // Tema değiştirici: Açık/koyu tema arası geçiş
         const themeToggle = document.getElementById('theme-toggle');
         let isLightTheme = localStorage.getItem('theme') === 'light';
         if (isLightTheme) {
@@ -1045,7 +1015,6 @@
             isLightTheme = !isLightTheme;
         });
 
-        // Dil değiştirme: İngilizce/Türkçe geçiş
         const langToggle = document.getElementById('lang-toggle');
         let currentLang = 'en';
         langToggle.addEventListener('click', () => {
@@ -1055,13 +1024,11 @@
             });
         });
 
-        // Parallax efekti: Arka planın kaydırma ile hareketi
         window.addEventListener('scroll', () => {
             const offset = window.scrollY * 0.2;
             document.querySelector('.home').style.setProperty('--parallax-offset', `${offset}px`);
         });
 
-        // Section animasyonları: Görünüm alanına girince animasyon
         const sections = document.querySelectorAll("section");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -1074,7 +1041,6 @@
         }, { threshold: 0.2 });
         sections.forEach((section) => observer.observe(section));
 
-        // Navbar gizleme: Aşağı kaydırıldığında gizlenir
         let lastScrollTop = 0;
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
@@ -1087,21 +1053,25 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // Footer ve yukarı kaydırma butonu görünürlüğü
-        const scrollTop = document.getElementById('scroll-top');
         window.onscroll = function() {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                document.querySelector('.footer').style.bottom = '0';
+            const scrollTopBtn = document.getElementById('scroll-top');
+            const footer = document.getElementById('footer');
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const documentHeight = document.body.offsetHeight;
+
+            if (scrollPosition >= documentHeight - 10) {
+                footer.classList.add('visible');
             } else {
-                document.querySelector('.footer').style.bottom = '-40px';
+                footer.classList.remove('visible');
             }
-            scrollTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+
+            scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         };
-        scrollTop.addEventListener('click', () => {
+
+        document.getElementById('scroll-top').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // İletişim formu gönderme
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             emailjs.sendForm('Muhammet Gmail', 'template_sj7ewts', this)
@@ -1113,7 +1083,6 @@
                 });
         });
 
-        // Proje modal işlevselliği
         const modal = document.getElementById('project-modal');
         const closeModal = document.getElementById('close-modal');
         const projectCards = document.querySelectorAll('.project-card');
@@ -1138,7 +1107,6 @@
             if (e.target === modal) modal.style.display = 'none';
         });
 
-        // Yetenek kartları interaktifliği
         const skillBoxes = document.querySelectorAll('.skill-box');
         skillBoxes.forEach(box => {
             box.addEventListener('click', () => {
@@ -1146,7 +1114,6 @@
             });
         });
 
-        // Parçacık efekti oluşturma
         function createParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.className = 'particles';
@@ -1163,7 +1130,6 @@
         }
         createParticles();
 
-        // Saat güncelleme
         function updateTime() {
             const now = new Date();
             const timeString = now.toLocaleTimeString('en-US', { hour12: false });
@@ -1172,7 +1138,6 @@
         setInterval(updateTime, 1000);
         updateTime();
 
-        // İstatistik sayacı animasyonu
         function animateCounter() {
             const counter = document.getElementById('years-counter');
             const target = +counter.getAttribute('data-target');
