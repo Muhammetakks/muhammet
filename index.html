@@ -430,6 +430,7 @@
         50% {
           box-shadow: 0 0 60px rgba(0, 171, 240, 1);
         }
+        ])
         100% {
           box-shadow: 0 0 30px rgba(0, 171, 240, 0.8);
         }
@@ -457,11 +458,48 @@
         margin-bottom: 40px;
       }
 
-      .section-content p {
+      .section-content {
         font-size: 18px;
+
         line-height: 1.8;
         text-align: justify;
         color: #ededed;
+      }
+
+      #about .section-content {
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 15px;
+      }
+
+      #about .section-content::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      #about .section-content::-webkit-scrollbar-track {
+        background: #0e2d42;
+        border-radius: 4px;
+      }
+
+      #about .section-content::-webkit-scrollbar-thumb {
+        background: #00abf0;
+        border-radius: 4px;
+      }
+
+      #about .section-content::-webkit-scrollbar-thumb:hover {
+        background: #008bd0;
+      }
+
+      body.light-theme #about .section-content::-webkit-scrollbar-track {
+        background: #e0e0e0;
+      }
+
+      body.light-theme #about .section-content::-webkit-scrollbar-thumb {
+        background: #00abf0;
+      }
+
+      body.light-theme #about .section-content::-webkit-scrollbar-thumb:hover {
+        background: #008bd0;
       }
 
       .skills-container {
